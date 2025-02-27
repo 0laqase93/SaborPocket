@@ -1,0 +1,196 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recipeContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Activities.MainActivity">
+
+    <!-- Imagen grande en la parte superior -->
+    <ImageView
+        android:id="@+id/recipeImage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:contentDescription="TODO"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/image_recipe_not_found" />
+
+    <!-- Tarjeta de la receta -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/recipeCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Fuente (Source) -->
+            <TextView
+                android:id="@+id/recipeSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/textSecondary"
+                tools:text="Source: Example Source" />
+
+            <!-- Contenedor para título y favorito -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <!-- Título de la receta -->
+                <TextView
+                    android:id="@+id/recipeTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Pizza Recipe"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary" />
+
+                <!-- Icono de favorito -->
+                <ImageView
+                    android:id="@+id/favoriteIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_unlike"/>
+            </LinearLayout>
+
+            <!-- Contenedor para los botones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <!-- Botón de URL -->
+                <Button
+                    android:id="@+id/recipeUrlButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Visite web"
+                    android:textSize="14sp"
+                    android:backgroundTint="@color/primary"
+                    android:textColor="@color/white" />
+
+                <!-- Botón de YouTube -->
+                <Button
+                    android:id="@+id/recipeVideoButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Youtube"
+                    android:textSize="14sp"
+                    android:backgroundTint="@color/youtube"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Línea separadora antes de ingredientes -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/accent" />
+
+            <!-- Sección de ingredientes -->
+            <TextView
+                android:id="@+id/ingredientsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary"
+                tools:text="Ingredients (12)" />
+
+            <LinearLayout
+                android:id="@+id/ingredientsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+            </LinearLayout>
+
+            <!-- Línea separadora antes de más detalles -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/accent" />
+
+            <!-- Sección de Preparación -->
+            <TextView
+                android:id="@+id/instructionsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary"
+                tools:text="Instructions" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Hola soy una receta jejjejej jje j ejeje jjej jeje je jje jjejje je jje jej je je jje jej je jje je jjje jje je jje "/>
+
+            <!-- Línea separadora antes de más detalles -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/accent" />
+
+            <!-- Sección de detalles adicionales -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/recipeCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Calories: 250 kcal"
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary" />
+
+                <TextView
+                    android:id="@+id/recipeTotalTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Total Time: 30 min"
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary" />
+
+                <TextView
+                    android:id="@+id/recipeYield"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Servings: 4"
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

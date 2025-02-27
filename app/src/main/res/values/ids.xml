@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="label" type="id"/>
+    <item name="url" type="id"/>
+    <item name="source" type="id"/>
+    <item name="yield" type="id"/>
+    <item name="dietLabels" type="id"/>
+    <item name="healthLabels" type="id"/>
+    <item name="cautions" type="id"/>
+    <item name="ingredientLines" type="id"/>
+    <item name="calories" type="id"/>
+    <item name="totalTime" type="id"/>
+    <item name="esFavorita" type="id"/>
+</resources>

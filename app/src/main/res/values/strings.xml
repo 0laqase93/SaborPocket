@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SaborPocket</string>
+    <string name="SharedEmail">SharedEmail</string>
+    <string name="SharedPassword">SharedPassword</string>
+    <string name="SharedRemember">SharedRemember</string>
+    <string name="SharedName">SharedName</string>
+    <string name="Resumen">Tu recetario de confianza</string>
+    <string name="Bienvenido">Bienvenido</string>
+    <string name="PreguntaRegistro">¿No tienes cuenta? Regístrate</string>
+    <string name="IniciarSesion">Iniciar sesión</string>
+    <string name="Recordar">Recordar</string>
+    <string name="Contrasena">Contraseña</string>
+    <string name="Correo">Correo electrónico</string>
+    <string name="Registrarse">Registrarse</string>
+    <string name="SubtituloRegistrar">Registrate para continuar</string>
+    <string name="Nombre">Nombre</string>
+    <string name="AnadirReceta">Añadir Receta</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

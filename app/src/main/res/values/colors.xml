@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#D97706</color> <!-- Naranja tierra cálido -->
+    <color name="secondary">#A16207</color> <!-- Mostaza oscuro -->
+    <color name="accent">#FDE68A</color> <!-- Amarillo pastel -->
+    <color name="background">#FFF7ED</color> <!-- Beige claro -->
+    <color name="textPrimary">#4B2E00</color> <!-- Marrón oscuro -->
+    <color name="textSecondary">#6B4226</color> <!-- Marrón medio -->
+    <color name="youtube">#c4302b</color>
+</resources>

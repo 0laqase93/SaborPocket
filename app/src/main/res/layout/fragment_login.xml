@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewSwitcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/background"
+        tools:context=".Activities.MainActivity">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="TODO"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/logo"/>
+
+        <!-- CardView para borde redondeado -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <!-- Contenido del login -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center_horizontal">
+
+                <!-- Título del login -->
+                <TextView
+                    android:id="@+id/tvLoginTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Bienvenido"
+                    android:textSize="28sp"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Subtítulo -->
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Resumen"
+                    android:textSize="16sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Campo de correo -->
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:hint="@string/Correo"
+                    android:textColorHint="#CCCCCC"
+                    android:backgroundTint="#CCCCCC"
+                    android:textColor="@color/black"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Campo de contraseña -->
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:hint="@string/Contrasena"
+                    android:textColorHint="#CCCCCC"
+                    android:backgroundTint="#CCCCCC"
+                    android:textColor="@color/black"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Sección de checkbox alineado a la izquierda -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start"
+                    android:layout_marginBottom="16dp">
+
+                    <CheckBox
+                        android:id="@+id/cbRememberMe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Recordar"
+                        android:textColor="#666666" />
+                </LinearLayout>
+
+                <!-- Botón de iniciar sesión -->
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/IniciarSesion"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@color/primary"
+                    android:paddingVertical="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Botón de registrarse  -->
+                <TextView
+                    android:id="@+id/tvRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/PreguntaRegistro"
+                    android:textColor="#3F51B5"
+                    android:textSize="14sp"
+                    android:gravity="center" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Vista de registrarse -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/background"
+        tools:context=".LoguearActivity">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="TODO"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/card2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/logo"/>
+
+        <!-- CardView para borde redondeado -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <!-- Contenido del login -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center_horizontal">
+
+                <!-- Título del register -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Registrarse"
+                    android:textSize="28sp"
+                    android:textColor="#333333"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Subtítulo -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/SubtituloRegistrar"
+                    android:textSize="16sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Campo de nombre -->
+                <EditText
+                    android:id="@+id/etRegisterName"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:hint="@string/Nombre"
+                    android:textColorHint="#CCCCCC"
+                    android:backgroundTint="#CCCCCC"
+                    android:textColor="@color/black"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Campo de correo -->
+                <EditText
+                    android:id="@+id/etRegisterEmail"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Correo"
+                    android:textColorHint="#CCCCCC"
+                    android:backgroundTint="#CCCCCC"
+                    android:textColor="@color/black"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Campo de contraseña -->
+                <EditText
+                    android:id="@+id/etRegisterPassword"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:hint="@string/Contrasena"
+                    android:textColorHint="#CCCCCC"
+                    android:backgroundTint="#CCCCCC"
+                    android:textColor="@color/black"
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+
+                <!-- Botón de registrarse -->
+                <Button
+                    android:id="@+id/btnRegisterLogin"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Registrarse"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@color/primary"
+                    android:paddingVertical="12dp"
+                    android:layout_marginBottom="16dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ViewSwitcher>
