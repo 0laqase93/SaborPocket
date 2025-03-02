@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeFragment_to_recipeFragment"
             app:destination="@id/recipeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addRecipeFragment"
+            app:destination="@id/addRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"
@@ -37,5 +40,23 @@
         <argument
             android:name="Receta"
             app:argType="com.pmdm.saborpocket.Entities.RecetaEntity" />
+        <argument
+            android:name="Usuario"
+            app:argType="com.pmdm.saborpocket.Entities.UsuarioEntity"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.pmdm.saborpocket.Fragments.AddRecipeFragment"
+        android:label="AddRecipeFragment"
+        tools:layout="@layout/fragment_add_recipe">
+        <argument
+            android:name="Usuario"
+            app:argType="com.pmdm.saborpocket.Entities.UsuarioEntity"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_addRecipeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ingredientItemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="8dp">
+
+    <!-- EditText para el texto de la instrucción -->
+    <EditText
+        android:id="@+id/instruction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Escribe la instrucción"
+        android:textSize="14sp"
+        android:textColor="@color/textSecondary"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"/>
+</LinearLayout>

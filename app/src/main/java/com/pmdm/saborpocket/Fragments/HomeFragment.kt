@@ -1,12 +1,15 @@
 package com.pmdm.saborpocket.Fragments
 
+import android.media.MediaPlayer
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -15,21 +18,25 @@ import com.pmdm.saborpocket.Entities.UsuarioEntity
 import com.pmdm.saborpocket.Adapter.AdaptadorRecetas
 import com.pmdm.saborpocket.Adapter.OnClickListener
 import com.pmdm.saborpocket.Data.Aplicacion
+import com.pmdm.saborpocket.Data.RecetaViewModel
 import com.pmdm.saborpocket.Entities.FavoritoEntity
 import com.pmdm.saborpocket.Entities.RecetaEntity
+import com.pmdm.saborpocket.R
 import com.pmdm.saborpocket.databinding.FragmentHomeBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
-class HomeFragment : Fragment(), OnClickListener     {
+class HomeFragment : Fragment(), OnClickListener {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var gridLayout: GridLayoutManager
     private lateinit var adaptadorRecetas: AdaptadorRecetas
+    private lateinit var recetaViewModel: RecetaViewModel
+    private lateinit var mediaPlayer: MediaPlayer
+    private var musicaPosicion: Int = 0
 
-    private  var usuario: UsuarioEntity? = null
+    private var usuario: UsuarioEntity? = null
     val args: HomeFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -39,21 +46,50 @@ class HomeFragment : Fragment(), OnClickListener     {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
+        mediaPlayer = MediaPlayer.create(requireContext(), R.raw.soyunagargola)
+        mediaPlayer.isLooping = true
+        mediaPlayer.seekTo(musicaPosicion)
+        mediaPlayer.start()
+
         usuario = args.Usuario
 
         logicaBotonFlotante()
         configurarRecyclerView()
 
+        recetaViewModel = ViewModelProvider(requireActivity()).get(RecetaViewModel::class.java)
+
+        recetaViewModel.recetasFavoritas.observe(viewLifecycleOwner) { recetas ->
+            adaptadorRecetas.establecerRecetas(recetas.toMutableList())
+        }
+
+        usuario?.id?.let { recetaViewModel.actualizarFavoritos(it) }
+
         return binding.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        musicaPosicion = mediaPlayer.currentPosition
+        mediaPlayer.pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (mediaPlayer != null && !mediaPlayer.isPlaying) {
+            mediaPlayer.seekTo(musicaPosicion)
+            mediaPlayer.start()
+        }
     }
 
     private fun logicaBotonFlotante() {
         val botonFlotante = binding.addNew
         botonFlotante.setOnClickListener {
-            Toast.makeText(requireContext(), "Creando noticia", Toast.LENGTH_SHORT).show()
-            /*val intent = Intent(requireContext(), AgregarNoticiaActivity::class.java)
-            intent.putExtra("Usuario", usuario)
-            startActivity(intent)*/
+            Toast.makeText(requireContext(), "Creando receta", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToAddRecipeFragment(
+                    Usuario = usuario
+                )
+            )
         }
     }
 
@@ -100,7 +136,8 @@ class HomeFragment : Fragment(), OnClickListener     {
         Toast.makeText(requireContext(), "Receta seleccionada", Toast.LENGTH_SHORT).show()
         findNavController().navigate(
             HomeFragmentDirections.actionHomeFragmentToRecipeFragment(
-                Receta = recetaEntity
+                Receta = recetaEntity,
+                Usuario = usuario
             )
         )
     }
@@ -109,7 +146,6 @@ class HomeFragment : Fragment(), OnClickListener     {
         recetaEntity.esFavorita = !recetaEntity.esFavorita
         adaptadorRecetas.actualizar(recetaEntity)
         lifecycleScope.launch(Dispatchers.IO) {
-            // Esto asignará -1 en caso de que usuario sea null. (No debería)
             val favoritoEntity = FavoritoEntity(usuario?.id ?: -1, recetaEntity.id)
             if (recetaEntity.esFavorita) {
                 Aplicacion
@@ -126,6 +162,8 @@ class HomeFragment : Fragment(), OnClickListener     {
                 .baseDeDatos
                 .recetaDao()
                 .actualizarReceta(recetaEntity)
+
+            usuario?.id?.let { recetaViewModel.actualizarFavoritos(it) }
         }
     }
 

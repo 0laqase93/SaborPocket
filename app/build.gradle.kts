@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.activity)
+    implementation(libs.engage.core)
     val roomVersion = "2.6.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -70,12 +71,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
-
     // Gson
-    implementation("com.google.code.gson:gson:2.8.8")
-
-    // API
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.google.code.gson:gson:2.10.1")
 }

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <EditText
+                    android:id="@+id/recipeTitleInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre de la receta"
+                    android:textSize="18sp"
+                    android:textColor="@color/textPrimary"/>
+
+                <EditText
+                    android:id="@+id/imageUrlInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Inserta la URL de la imagen"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp"/>
+
+                <EditText
+                    android:id="@+id/recipeSourceInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Fuente de la receta"
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary"/>
+
+                <EditText
+                    android:id="@+id/recipeCaloriesInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Calorías (kcal)"
+                    android:inputType="numberDecimal"
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary"/>
+
+                <EditText
+                    android:id="@+id/recipeTotalTimeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tiempo total (minutos)"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary"/>
+
+                <EditText
+                    android:id="@+id/recipeYieldInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Porciones"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary"/>
+
+                <!-- Botones de agregar y eliminar ingredientes -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:paddingTop="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ingredientes"
+                        android:textSize="14sp"
+                        android:textColor="@color/textPrimary"
+                        android:layout_marginEnd="8dp"/>
+
+                    <Button
+                        android:id="@+id/addIngredientButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:textSize="18sp"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white"/>
+
+                    <Button
+                        android:id="@+id/removeIngredientButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <!-- Contenedor para ingredientes -->
+                <LinearLayout
+                    android:id="@+id/ingredientsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp">
+                    <!-- Los ingredientes se agregarán dinámicamente aquí -->
+                </LinearLayout>
+
+                <!-- Botones de agregar y eliminar instrucciones -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:paddingTop="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Instrucciones"
+                        android:textSize="14sp"
+                        android:textColor="@color/textPrimary"
+                        android:layout_marginEnd="8dp"/>
+
+                    <Button
+                        android:id="@+id/addInstructionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:textSize="18sp"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white"/>
+
+                    <Button
+                        android:id="@+id/removeInstructionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textSize="18sp"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <!-- Contenedor para instrucciones -->
+                <LinearLayout
+                    android:id="@+id/instructionsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp">
+                    <!-- Las instrucciones se agregarán dinámicamente aquí -->
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/recipeYoutubeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="URL de YouTube (opcional)"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"/>
+
+                <Button
+                    android:id="@+id/saveRecipeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Guardar Receta"
+                    android:textSize="16sp"
+                    android:backgroundTint="@color/primary"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+</ScrollView>
